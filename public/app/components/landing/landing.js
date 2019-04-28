@@ -10,6 +10,10 @@ const landing = {
             $location.path('map');
         }
 
+        self.goLog = () => {
+            $location.path('log');
+        }
+
     }]
 
 }
