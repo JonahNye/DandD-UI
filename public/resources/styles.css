@@ -32,6 +32,10 @@ body {
     height: 200px;
 }
 
+/* FIX IMG SIZE --------------------------------------------------------------------------------------------
+--------------------------------
+-------------- */
+
 .menu-cont {
     position: absolute;
     display: flex;
@@ -354,12 +358,19 @@ body {
     align-items: center;
 
     border: 1px solid black;
+    font-size: 30px;
 }
 
 .open-supplies {
     border: 1px solid black;
     padding-left: 8px;
     padding-right: 8px;
+}
+
+.open-supplies:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
 
 .map-arrow {
