@@ -14,6 +14,10 @@ angular
                 template: "<map></map>"
             })
 
+            .when("/party", {
+                template: "<party></party>"
+            })
+
             .when("/", {
                 template: "<landing></landing>"
             })

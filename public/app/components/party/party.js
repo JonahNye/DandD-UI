@@ -1,7 +1,7 @@
 "use strict";
 
-const landing = {
-    templateUrl: "./app/components/landing/landing.html",
+const party = {
+    templateUrl: "./app/components/party/party.html",
     controller: ["Service", "$http", "$location", function(Service, $http, $location) {
 
         const self = this;
@@ -14,8 +14,8 @@ const landing = {
             $location.path('log');
         }
 
-        self.goParty = () => {
-            $location.path('party');
+        self.goLanding = () => {
+            $location.path('landing');
         }
 
     }]
@@ -24,4 +24,4 @@ const landing = {
 
 angular
     .module("D&D")
-    .component("landing", landing)
+    .component("party", party)
