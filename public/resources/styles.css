@@ -234,8 +234,6 @@ body {
 
 
 
-
-
 /*--------------------------------------------- Log -------------------------------------*/
 .funds {
     position: absolute; 
@@ -261,6 +259,26 @@ body {
     height: 82%;
 
     border: 1px solid black;
+    overflow-y: scroll;
+}
+
+.location {
+    margin: 2% 0 2% 0;
+    width: 80%;
+    height: 10%;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    border: 1px solid black;
+    font-size: 30px;
+}
+
+.location:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
 
 .transaction {
