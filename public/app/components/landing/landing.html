@@ -1,19 +1,34 @@
 <section class="fade-cont">
-    <img class="title" src="resources/DD-Logo-navy-white4.png">
+    <img class="title" src="resources/DD-Logo-Navy-white2.png">
 
     <img src="resources/landing.jpg" class="landing">
     <section class="menu-cont">
 
         <section class="map-button button" ng-click="$ctrl.goMap();">
+            <img class="world world-hide" src="resources/world1.svg">
+            <img class="world" src="resources/world.svg">
             <h2>Map</h2>
+            <img  class="world" src="resources/world.svg">
+            <img class="world world-hide" src="resources/world1.svg">
+            <section class="map-cover"></section>
         </section>
 
         <section class="log-button button" ng-click="$ctrl.goLog();">
+            <img class="log-hide log" src="resources/log2.svg">
+            <img class = "log" src="resources/log1.svg">
             <h2>Log</h2>
+            <img class="log" src="resources/log1.svg">
+            <img class="log-hide log" src="resources/log2.svg">
+            <section class="log-cover"></section>
         </section>
 
         <section ng-click="$ctrl.goParty();" class="party-button button">
-                <h2>Party Members</h2>
+            <img class="party party-hide" src="resources/duality1.svg">
+            <img src="resources/duality2.svg" class="party">
+            <h2>Party</h2>
+            <img class="party" src="resources/duality2.svg">
+            <img class="party party-hide" src="resources/duality1.svg">
+            <section class="party-cover"></section>
         </section>
 
     </section>

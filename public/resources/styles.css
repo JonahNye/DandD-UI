@@ -15,6 +15,10 @@ body {
     100% {opacity: 1;}
 }
 
+landing h2 {
+    font-family: 'MedievalSharp', cursive;
+}
+
 .landing {
     z-index: 0;
     width: 100%;
@@ -24,17 +28,19 @@ body {
 
 .title {
     position: absolute;
-    top: 7%;
+    top: 14%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    width: 600px;
-    height: 200px;
+    /* width: 600px;
+    height: 200px; */
+    height: 20%;
+    width: 30%;
 }
 
-/* FIX IMG SIZE --------------------------------------------------------------------------------------------
---------------------------------
--------------- */
+
+/*-- buttons to other pages --- */
+
 
 .menu-cont {
     position: absolute;
@@ -57,22 +63,20 @@ body {
     height: 60px;
     background-color: white;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     border-radius: 6px;
     color: #122140;
-}
-
-.button:nth-child(odd){
-    background-color: blanchedalmond;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .button h2 {
-    font-size: 45px;
+    font-size: 55px;
 }
 
 .button:hover {
     background-color: #122140;
-    color: blanchedalmond;
+    color: #ffebcd;
     cursor: pointer;
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 }
@@ -91,6 +95,55 @@ body {
       transform: translate3d(4px, 0, 0);
     }
   }
+
+
+  .world {
+    height: 100%;
+}
+
+.world-hide {
+    display: none;
+}
+
+.log {
+    height: 100%;
+}
+
+.log-hide {
+    display: none;
+}
+
+.party {
+    height: 100%;
+}
+
+.party-hide {
+    display: none;
+}
+
+.map-cover {
+    background-color: transparent;
+    z-index: 3;
+    width: 100%;
+    height: 21%;
+    position: absolute;
+}
+
+.log-cover {
+    background-color: transparent;
+    z-index: 2;
+    width: 100%;
+    height: 21%;
+    position: absolute;
+}
+
+.party-cover {
+    background-color: transparent;
+    z-index: 2;
+    width: 100%;
+    height: 21%;
+    position: absolute;
+}
 
 /* -------------------- Map ------------------ */
 /* .map-area {
@@ -235,12 +288,25 @@ body {
 
 
 /*--------------------------------------------- Log -------------------------------------*/
+
+log p {
+    font-family: 'MedievalSharp', cursive;
+}
+
+log h1 {
+    font-family: 'MedievalSharp', cursive;
+}
+
+log h3 {
+    font-family: 'MedievalSharp', cursive;
+}
+
 .funds {
     position: absolute; 
-    top: 0;
-    right: 0;
+    top: 4%;
+    left: 75%;
     width: 20%;
-    height: 10%;
+    height: 8%;
     margin-right: 0;
     border: 1px solid black;
     display: flex;
@@ -354,12 +420,84 @@ body {
     font-size: 25px;
 }
 
+
+
+/*--- Supplies and legder sections ---*/
+
+
+
+.supplies {
+    position: absolute;
+    width: 20%;
+    height: 27%;
+    right: 5%;
+    top: 15%;
+    border: 1px solid black;
+    background-color: black;
+}
+
+.supplies img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.open-supplies {
+    color: #122140;
+    font-size: 40px;
+    background-color: white;
+    border: 1px solid #122140;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 45%;
+    height: 20%;
+}
+
+.open-supplies:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.supplies-page {
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: 1px solid black;
+    z-index: 5;
+    background-color: white;
+}
+
+.supplies-close {
+    color: red;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+}
+
+
 .ledger {
     position: absolute;
     right: 5%;
-    top: 30%;
+    top: 50%;
     width: 20%;
-    height: 30%;
+    height: 27%;
 }
 
 .ledger img {
@@ -386,32 +524,48 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-radius: 15px;
 }
 
-.supplies {
-    width: 100%;
-    height: 10%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-    border: 1px solid black;
-    font-size: 30px;
+.open-ledger:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
 
-.open-supplies {
+.ledger-page {
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: 1px solid black;
+    z-index: 5;
+    background-color: white;
+}
+
+.ledger-close {
+    color: red;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+}
+
+
+/*--- Log footer nav ----*/
+
+
+
+.open-party {
     border: 1px solid black;
     padding-left: 8px;
     padding-right: 8px;
 }
 
-.open-supplies:hover {
+.open-party:hover {
     cursor: pointer;
     background-color: black;
     color: white;
@@ -446,6 +600,14 @@ body {
 
 
 /*---------------------------------------Party -------------------*/
+
+party p {
+    font-family: 'MedievalSharp', cursive;
+}
+
+party h2 {
+    font-family: 'MedievalSharp', cursive;
+}
 
 .frame-cont {
     width: 100%;
@@ -501,9 +663,6 @@ body {
     height: 100%;
 }
 
-
-
-
 .bottom-nav {
     width: 100%;
     height: 8%;
@@ -538,6 +697,18 @@ body {
 }
 
 .menu-arrow-char:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.log-arrow-char {
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.log-arrow-char:hover {
     cursor: pointer;
     background-color: black;
     color: white;

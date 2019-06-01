@@ -18,7 +18,7 @@
         </section>
 
         <section class="location">
-            <h3>Test</h3>
+            <h3>make array of city objects. ng repeat through array</h3>
         </section>
 
         <section class="location">
@@ -75,19 +75,41 @@
     </section>
 
     <section class="ledger">
-        <setion class="open-ledger">
+        <setion ng-click="$ctrl.toggleLedger();" class="open-ledger">
             <p>Open Log</p>
         </setion>
         <img src="resources/ledger-background.svg">
     </section>
 
+    <section class="ledger-page">
+            <p>Test</p>
+            <section class="item"></section>
+            <i class="material-icons ledger-close" style="font-size: 80px" ng-click="$ctrl.toggleLedger();">clear</i>
+        </section>
+
     <section class="supplies">
+        <section ng-click="$ctrl.toggleSupplies();" class="open-supplies">
+            <p>Open Supplies</p>
+        </section>
+        <img src="resources/supplies-background.png">
+    </section>
+
+    <section class="supplies-page">
+        <p>Test</p>
+        <section class="item"></section>
+        <i class="material-icons supplies-close" style="font-size: 80px" ng-click="$ctrl.toggleSupplies();">clear</i>
+    </section>
+
+    <section class="bottom-nav">
+        
+        <section ng-click="$ctrl.goParty();" class="open-party">
+            <p>Party</p>
+        </section>
+
         <section class="menu-arrow" ng-click="$ctrl.goLanding();">
             <p>Menu</p>
         </section>
-        <section class="open-supplies">
-            <p>Open Supplies</p>
-        </section>
+
         <section class="map-arrow" ng-click="$ctrl.goMap();">
             <p>Map</p>
         </section>
