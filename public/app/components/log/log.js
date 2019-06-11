@@ -6,16 +6,90 @@ const log = {
 
     const vm = this;
 
+
+
+    //cursor image:   cursor: url('path-to-image.png'), auto;	
+
+        //use this for log!!!  Really utilize that svg generator
+
+
     //let inventory = Service.getLog()
 
-    function updateSupplies() {
+    function logGet() {
         Service.getLog().then((result) => {
         vm.logObj = result.data;
-        console.log(vm.logObj);
+        vm.upDateLog(vm.logObj);
     })
     }
 
-    updateSupplies();
+    logGet();
+
+    function supplyGet() {
+        Service.getSupply().then((answer) => {
+            vm.supplyObj = answer.data;
+            vm.upDateSupply(vm.supplyObj);
+        })
+    }
+
+    supplyGet();
+
+    vm.upDateLog = () => {
+        console.log(vm.logObj);
+        document.querySelector(".item").innerHTML = ``;
+        for (let entry of vm.logObj) {
+
+            const newEntry = document.createElement("section");
+            newEntry.classList.add("newEntry");
+            newEntry.innerHTML = `
+                <p class="entry-num"> ${entry.id}.</p>
+                <p class="item-name"> Item: ${entry.item}</p>
+                <p class="net">Transaction Total: ${entry.price * entry.quantity}</p>
+            `;
+
+            document.querySelector(".item").appendChild(newEntry);
+            
+        }
+
+    }
+
+    vm.upDateSupply = () => {
+        console.log(vm.supplyObj);
+        // document.querySelector(".product").innerHTML = ``;
+        for (let crate of vm.supplyObj) {
+
+            let imgURL = "";
+
+            if (crate.name === "cloth") {imgURL = "resources/rolled-cloth.svg"}
+            else if (crate.name === "lumber") {imgURL = "resources/wood-pile.svg"}
+            else if (crate.name === "iron ore") {imgURL = "resources/iron-ore.svg"}
+            else if (crate.name === "spices") {imgURL = "resources/hot-spices.svg"}
+
+            const newCrate = document.createElement("section");
+            newCrate.classList.add("crate");
+            newCrate.innerHTML = `
+            <img class="product-icon" src="${imgURL}">
+            <p class="product-quantity">${crate.quantity}</p>
+        `
+
+            document.querySelector(".product").appendChild(newCrate);
+        }
+    }
+
+    vm.buy = (newEntry)=> {
+        vm.newEntry["type"] = "bought";
+        Service.postLog(newEntry).then(logGet());
+        //call put to new table, supply update
+    }
+
+    vm.sell = (newEntry) => {
+        vm.newEntry["type"] = "sold";
+        Service.postLog(newEntry).then(logGet());
+        //call put to new table, call supply update
+    }
+
+
+
+    //supplies as own table. only post for each commodity, allows for partial sales. uses same newEntry object. 
 
     //Supply Open / Close
 
@@ -27,12 +101,10 @@ const log = {
         supplyState = !supplyState;
         if (supplyState === false) {
             suppliesPage.style.display="none";
-            console.log("hi 1");
         }
     
         if (supplyState  === true) {
             suppliesPage.style.display="flex";
-            console.log("hi2");
         }    
     }
 
@@ -75,19 +147,40 @@ const log = {
 
                 {name: "Stillben", prices: new Prices(6, 14, 50, 100)},
                 {name: "Drymma", prices: new Prices(6, 14, 50, 100)},
-                {name: "Westrunn", prices: new Prices(5, 20, 60, 120)}
+                {name: "Westrunn", prices: new Prices(5, 20, 60, 120)},
+                {name: "Emon", prices: new Prices(7, 25, 70, 125)}
                 
             ]
         }
 
         display(){
-            //address book display
+
+            document.querySelector(".item").innerHTML = ``;
+        for (let city of this.CPPackage) {
+
+            const newEntry = document.createElement("section");
+            newEntry.classList.add("location");
+            newEntry.innerHTML = `
+              <h3> ${city.name}</h3>
+              <section class="price-pop-up">
+
+                    <p> <img class="item-thumb" src="resources/rolled-cloth.svg"> ${city.prices.cloth}</p>
+                    <p> <img class="item-thumb" src="resources/wood-pile.svg"> ${city.prices.lumber}</p>
+                    <p> <img class="item-thumb" src="resources/iron-ore.svg"> ${city.prices.ironOre}</p>
+                    <p> <img class="item-thumb" src="resources/hot-spices.svg"> ${city.prices.spices}</p>
+        
+              </section>
+            `;
+
+            document.querySelector(".prices").appendChild(newEntry);
+            
+        }
+            
         }
     }
 
     const cityPriceObj = new CityPrices();
-
-    console.log(cityPriceObj); //use this to display
+    cityPriceObj.display();
 
     
 

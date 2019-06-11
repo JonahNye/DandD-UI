@@ -7,6 +7,14 @@ const map = {
 
     const vm = this;
 
+
+    //"load" screen
+
+
+    
+
+    //app nav
+
     vm.openWestruun = () => {
         vm.westruunInfo = !vm.westruunInfo;
     }

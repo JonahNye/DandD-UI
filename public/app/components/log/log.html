@@ -6,72 +6,24 @@
     <section class="prices">
 
         <section class="location">
-            <h3>Drymma</h3>
-        </section>
-
-        <section class="location">
-            <h3>Stillben</h3>
-        </section>
-
-        <section class="location">
-            <h3>Emon</h3>
-        </section>
-
-        <section class="location">
-            <h3>make array of city objects. ng repeat through array</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
-        </section>
-
-        <section class="location">
-            <h3>Test</h3>
+            <!--Filled with info from class-->
         </section>
 
     </section>
 
     <section class="transaction">
-        <section class="buy-area">
-            <h1>Buy</h1>
-            <input class="buy-input" type="text" placeholder="Item">
-            <input class="buy-input" type="number" placeholder="quantity">
-            <input class="buy-input" type="number" placeholder="Price / Item">
-        </section>
-        <section class="sell-area">
-            <h1>Sell</h1>
-            <input class="sell-input" type="text" placeholder="Item">
-            <input class="sell-input" type="number" placeholder="Quantity">
-            <input class="sell-input" type="number" placeholder="Price / Item">
-        </section>
+        <form ng-submit="$ctrl.buy($ctrl.newEntry);" class="buy-area">
+            <button class="buy-btn">Buy</button>
+            <input ng-model="$ctrl.newEntry.item" class="buy-input" type="text" placeholder="Item">
+            <input ng-model="$ctrl.newEntry.quantity" class="buy-input" type="number" placeholder="quantity">
+            <input ng-model="$ctrl.newEntry.price" class="buy-input" type="number" placeholder="Price / Item">
+        </form>
+        <form ng-submit="$ctrl.sell($ctrl.newEntry);" class="sell-area">
+            <button class="buy-btn">Sell</button class="buy-btn">
+            <input ng-model="$ctrl.newEntry.item" class="sell-input" type="text" placeholder="Item">
+            <input ng-model="$ctrl.newEntry.quantity" class="sell-input" type="number" placeholder="Quantity">
+            <input ng-model="$ctrl.newEntry.price" class="sell-input" type="number" placeholder="Price / Item">
+        </form>
     </section>
 
     <section class="ledger">
@@ -82,9 +34,8 @@
     </section>
 
     <section class="ledger-page">
-            <p>Test</p>
-            <section class="item"></section>
             <i class="material-icons ledger-close" style="font-size: 80px" ng-click="$ctrl.toggleLedger();">clear</i>
+            <section class="item"></section>
         </section>
 
     <section class="supplies">
@@ -95,8 +46,7 @@
     </section>
 
     <section class="supplies-page">
-        <p>Test</p>
-        <section class="item"></section>
+        <section class="product"></section>
         <i class="material-icons supplies-close" style="font-size: 80px" ng-click="$ctrl.toggleSupplies();">clear</i>
     </section>
 

@@ -96,14 +96,18 @@ const landing = {
         })
 
 
+        //load screen animation
+
+
         //app paths
 
         self.goMap = () => {
             $location.path('map');
         }
 
-        self.goLog = () => {
+        self.goLog = () => { //alter w/load
             $location.path('log');
+            
         }
 
         self.goParty = () => {

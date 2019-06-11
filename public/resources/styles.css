@@ -1,6 +1,13 @@
 body {    
     margin: 0 !important;
     padding: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+
+.ng-scope {
+    width: 100vw;
+    height: 100vh;
 }
 
 
@@ -14,6 +21,7 @@ body {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
 
 landing h2 {
     font-family: 'MedievalSharp', cursive;
@@ -145,10 +153,41 @@ landing h2 {
     position: absolute;
 }
 
+
 /* -------------------- Map ------------------ */
 /* .map-area {
     z-index: 1;
 } */
+
+.load-screen {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: #122140;
+    z-index: 10;
+}
+
+.load-cont {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 65%;
+    border-radius: 800px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.load-icon {
+    width: 40%;
+    height: 70%;
+}
 
 @keyframes blinkUn {
     0% {border: 3px solid red;}
@@ -326,25 +365,35 @@ log h3 {
 
     border: 1px solid black;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .location {
-    margin: 2% 0 2% 0;
+    margin-top: 5%;
     width: 80%;
-    height: 10%;
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    height: 25%;
     text-align: center;
     border: 1px solid black;
-    font-size: 30px;
+    font-size: 40px;
 }
 
-.location:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
+.location:first-child {
+    margin-top: 20%;
+}
+
+.location h3 {
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+.price-pop-up {
+    display: flex;
+    justify-content: space-evenly;
+    height: 90%;
+    align-items: center;
 }
 
 .transaction {
@@ -368,12 +417,17 @@ log h3 {
     font-size: 60px;
 }
 
-.buy-area h1 {
+.buy-area button {
     border: 1px solid black;
     padding: 10px 30px 10px 30px;
+    font-family: 'MedievalSharp', cursive;
+    background-color: white;
+    width: 20%;
+    font-size: 60px;
+    margin-bottom: 5%;
 }
 
-.buy-area h1:hover {
+.buy-area button:hover {
     cursor: pointer;
     background-color: black;
     color: white;
@@ -387,6 +441,21 @@ log h3 {
     width: 40%;
     text-align: center;
     font-size: 25px;
+}
+
+.confirm {
+    margin-top: 5%;
+    display: flex;
+    font-size: 35px;
+    font-family: 'MedievalSharp', cursive;
+    width: 35%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.confirm input {
+    width: 75%;
+    height: 75%;
 }
 
 .sell-area {
@@ -418,6 +487,24 @@ log h3 {
     width: 40%;
     text-align: center;
     font-size: 25px;
+}
+
+.sell-area button {
+    border: 1px solid black;
+    padding: 10px 30px 10px 30px;
+    font-family: 'MedievalSharp', cursive;
+    background-color: white;
+    width: 20%;
+    font-size: 60px;
+    margin-bottom: 5%;
+}
+
+.sell-area button:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+
 }
 
 
@@ -491,6 +578,30 @@ log h3 {
     cursor: pointer;
 }
 
+.product {
+    width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.crate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 20%;
+    font-size: 75px;
+}
+
+
+.crate img {
+    width: 80%;
+    height: 80%;
+}
+
 
 .ledger {
     position: absolute;
@@ -544,6 +655,10 @@ log h3 {
     border: 1px solid black;
     z-index: 5;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
 }
 
 .ledger-close {
@@ -552,6 +667,24 @@ log h3 {
     top: 2%;
     right: 2%;
     cursor: pointer;
+}
+
+.item {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.newEntry {
+    font-size: 35px;
+    margin-top: 30px;
+    width: 80%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 
