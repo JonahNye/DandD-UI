@@ -9,7 +9,7 @@
         <section class="map-button button" ng-click="$ctrl.goMap();">
             <img class="world world-hide" src="resources/world1.svg">
             <img class="world" src="resources/world.svg">
-            <h2>Map</h2>
+            <h2> Map </h2>
             <img  class="world" src="resources/world.svg">
             <img class="world world-hide" src="resources/world1.svg">
             <section ng-click="$ctrl.goMap();" class="map-cover"></section>
@@ -18,11 +18,20 @@
         <section class="log-button button" ng-click="$ctrl.goLog();">
             <img class="log-hide log" src="resources/log2.svg">
             <img class = "log" src="resources/log1.svg">
-            <h2>Log</h2>
+            <h2> Log </h2>
             <img class="log" src="resources/log1.svg">
             <img class="log-hide log" src="resources/log2.svg">
             <section ng-click="$ctrl.goLog();" class="log-cover"></section>
         </section>
+
+        <section ng-click="$ctrl.goBoard();" class="board-button button">
+                <img class="board board-hide" src="resources/round-table-tan.svg">
+                <img src="resources/round-table-blue.svg" class="board">
+                <h2>Board</h2>
+                <img class="board" src="resources/round-table-blue.svg">
+                <img class="board board-hide" src="resources/round-table-tan.svg">
+                <section ng-click="$ctrl.goBoard();" class="board-cover"></section>
+            </section>
 
         <section ng-click="$ctrl.goParty();" class="party-button button">
             <img class="party party-hide" src="resources/duality1.svg">

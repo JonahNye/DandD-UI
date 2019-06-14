@@ -27,10 +27,20 @@ routes.post("/DnD", (req, res) => {
 //get supply
 
 routes.get("/DnDSupply", (req, res) => {
-    pool.query("SELECT * from supply").then((answer) => {
+    pool.query("SELECT * from supply order by id").then((answer) => {
         res.json(answer.rows);
     })
 })
+
+//put supply
+
+routes.put("/DnDSupply/:id", (req, res) => {
+    pool.query("update supply set name=$1::text, quantity=$2::int where id=$3::int", [req.body.item, req.body.quantity, req.params.id]).then(() => {
+        pool.query("SELECT * from supply order by id").then((answer) => { //problems due to shared obj with mismatched properties?
+            res.json(answer.rows);
+        })
+    })
+});
 
 
 module.exports = routes;

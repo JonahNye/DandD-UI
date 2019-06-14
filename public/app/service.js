@@ -29,6 +29,14 @@ function Service ($http) {
         });
     };
 
+    self.putSupply = (newEntry) => {
+        return $http({
+            url:`/DnDSupply/${newEntry.id}`,
+            method: "PUT",
+            data: newEntry
+        })
+    }
+
 }
 
 angular

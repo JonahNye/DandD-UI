@@ -6,6 +6,8 @@ const log = {
 
     const vm = this;
 
+    vm.funds = 0; // new table for
+
 
 
     //cursor image:   cursor: url('path-to-image.png'), auto;	
@@ -28,6 +30,7 @@ const log = {
         Service.getSupply().then((answer) => {
             vm.supplyObj = answer.data;
             vm.upDateSupply(vm.supplyObj);
+            return vm.supplyObj;
         })
     }
 
@@ -36,17 +39,20 @@ const log = {
     vm.upDateLog = () => {
         console.log(vm.logObj);
         document.querySelector(".item").innerHTML = ``;
+        let counter = 1;
         for (let entry of vm.logObj) {
 
             const newEntry = document.createElement("section");
             newEntry.classList.add("newEntry");
             newEntry.innerHTML = `
-                <p class="entry-num"> ${entry.id}.</p>
-                <p class="item-name"> Item: ${entry.item}</p>
+                <p class="entry-num"> ${counter}.</p>
+                <p class="item-name"> ${entry.item}</p>
                 <p class="net">Transaction Total: ${entry.price * entry.quantity}</p>
             `;
 
             document.querySelector(".item").appendChild(newEntry);
+            counter ++;
+            document.querySelector(".ledger-page").style.display="none";
             
         }
 
@@ -76,15 +82,92 @@ const log = {
     }
 
     vm.buy = (newEntry)=> {
+console.log(newEntry, vm.newEntry);
+        Service.getSupply().then((answer) => {
+            vm.supplyObj = answer.data;
+            // vm.upDateSupply(vm.supplyObj);
+            // return vm.supplyObj;
+        })
+
         vm.newEntry["type"] = "bought";
-        Service.postLog(newEntry).then(logGet());
-        //call put to new table, supply update
+       Service.postLog(newEntry);
+       
+       if (newEntry.item === "cloth"){
+           vm.newEntry["id"] = 1;
+        }
+        
+        else if (newEntry.item === "lumber"){
+            vm.newEntry["id"] = 2;
+        }
+        
+        else if (newEntry.item === "iron ore"){
+            vm.newEntry["id"] = 3;
+        }
+        
+        else if (newEntry.item === "spices"){
+            vm.newEntry["id"] = 4;
+        }
+        const { quantity } = [...vm.supplyObj][newEntry.id];
+
+        // console.log(vm.supplyObj);
+        // console.log(vm.newEntry.quantity);
+        // console.log(vm.supplyObj[vm.newEntry["id"]].quantity);
+        //newEntry.quantity = vm.supplyObj[newEntry["id"]].quantity + vm.newEntry.quantity;
+        newEntry.quantity = quantity + vm.newEntry.quantity;
+       console.log(newEntry);
+
+        Service.putSupply(newEntry).then(res => console.log(res), err => console.log(err));
+        
+    //form clear
+       let form = document.querySelector(".buy-area");
+        form.reset();
+        let form2 = document.querySelector(".sell-area");
+        form2.reset();
+    //display reset    
+        logGet();
+        supplyGet();
+        
     }
 
     vm.sell = (newEntry) => {
+
+        Service.getSupply().then((answer) => {
+            vm.supplyObj = answer.data;
+            // vm.upDateSupply(vm.supplyObj);
+            // return vm.supplyObj;
+        })
+
         vm.newEntry["type"] = "sold";
-        Service.postLog(newEntry).then(logGet());
-        //call put to new table, call supply update
+        Service.postLog(newEntry);
+
+        if (newEntry.item === "cloth"){
+            vm.newEntry["id"] = 1;
+        }
+
+        else if (newEntry.item === "lumber"){
+            vm.newEntry["id"] = 2;
+        }
+
+        else if (newEntry.item === "iron ore"){
+            vm.newEntry["id"] = 3;
+        }
+
+        else if (newEntry.item === "spices"){
+            vm.newEntry["id"] = 4;
+        }
+
+        //Service.putSupply();
+
+        
+        //form clear
+        let form = document.querySelector(".buy-area");
+        form.reset();
+        let form2 = document.querySelector(".sell-area");
+        form2.reset();
+
+        //reset display
+        vm.logGet();
+        vm.supplyGet();
     }
 
 
@@ -118,12 +201,10 @@ const log = {
         ledgerState = !ledgerState;
         if (ledgerState === false) {
             ledgerPage.style.display="none";
-            console.log("hi 1");
         }
     
         if (ledgerState  === true) {
             ledgerPage.style.display="flex";
-            console.log("hi2");
         }    
     }
 

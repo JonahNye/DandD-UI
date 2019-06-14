@@ -18,6 +18,10 @@ angular
                 template: "<party></party>"
             })
 
+            .when("/board", {
+                template: "<board></board>"
+            })
+
             .when("/", {
                 template: "<landing></landing>"
             })

@@ -44,6 +44,7 @@ landing h2 {
     height: 200px; */
     height: 20%;
     width: 30%;
+    opacity: .8;
 }
 
 
@@ -68,7 +69,7 @@ landing h2 {
 .button {
     display: flex;
     text-align: center;
-    height: 60px;
+    height: 50px;
     background-color: white;
     align-items: center;
     justify-content: space-evenly;
@@ -76,6 +77,7 @@ landing h2 {
     color: #122140;
     padding-top: 25px;
     padding-bottom: 25px;
+    opacity: .9;
 }
 
 .button h2 {
@@ -105,7 +107,7 @@ landing h2 {
   }
 
 
-  .world {
+.world {
     height: 100%;
 }
 
@@ -118,6 +120,14 @@ landing h2 {
 }
 
 .log-hide {
+    display: none;
+}
+
+.board {
+    height: 100%;
+}
+
+.board-hide {
     display: none;
 }
 
@@ -145,7 +155,7 @@ landing h2 {
     position: absolute;
 }
 
-.party-cover {
+.board-cover {
     background-color: transparent;
     z-index: 2;
     width: 100%;
@@ -153,11 +163,42 @@ landing h2 {
     position: absolute;
 }
 
+.party-cover {
+    background-color: transparent;
+    z-index: 2;
+    width: 100%;
+    height: 21%;
+    position: absolute;
+}
+                /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------- Board ---------------------------------------------------------------------------------------------------------------------------*/
 
-/* -------------------- Map ------------------ */
-/* .map-area {
-    z-index: 1;
-} */
+.game-board{
+    width: 40in;
+    height: 30in;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile {
+    width: 1in;
+    height: 1in;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: 0;
+}
+
+.tile:nth-child(even) {
+    background-color: gray;
+}
+
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------- Map ----------------------------------------------------------------------------------*/
+                /*---------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .load-screen {
     position: absolute;
@@ -325,8 +366,12 @@ landing h2 {
 }
 
 
+        /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------- Log -------------------------------------------------------------------------------------------------*/
 
-/*--------------------------------------------- Log -------------------------------------*/
+/* log .fade-cont {
+    background-color: black;
+} */
 
 log p {
     font-family: 'MedievalSharp', cursive;
@@ -357,6 +402,7 @@ log h3 {
 }
 
 .prices {
+    background-image: url('./prices-background.jpg');
     position: absolute;
     left: 5%;
     top: 4%;
@@ -378,6 +424,7 @@ log h3 {
     text-align: center;
     border: 1px solid black;
     font-size: 40px;
+    background-color: white;
 }
 
 .location:first-child {
@@ -407,6 +454,7 @@ log h3 {
 }
 
 .buy-area {
+    background-image:url('./wood-background.jpg');
     width: 100%;
     height: 50%;
     border-bottom: 1px solid black;
@@ -459,6 +507,7 @@ log h3 {
 }
 
 .sell-area {
+    background-image:url('./wood-background.jpg');
     width: 100%;
     height: 50%;
     display: flex;
@@ -597,9 +646,9 @@ log h3 {
 }
 
 
-.crate img {
-    width: 80%;
-    height: 80%;
+.crate img { /* how to alter svg size?  Make large image through website?? */
+    width: 600px !important;
+    height: 600px !important;
 }
 
 
@@ -797,6 +846,7 @@ party h2 {
 }
 
 .bottom-nav {
+    background-color: white;
     width: 100%;
     height: 8%;
     position: absolute;

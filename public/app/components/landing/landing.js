@@ -95,6 +95,35 @@ const landing = {
 
         })
 
+        //svg manipulation: board
+
+        const boards = document.querySelectorAll(".board");
+
+        document.querySelector(".board-cover").addEventListener("mouseenter", () =>{
+            
+            boards[0].removeAttribute("class", "board-hide");
+            boards[1].setAttribute("class","board-hide");
+            boards[2].setAttribute("class", "board-hide");
+            boards[3].removeAttribute("class","board-hide");
+
+            boards[0].setAttribute("class", "board");
+            boards[3].setAttribute("class", "board");
+
+        })
+
+        document.querySelector(".board-cover").addEventListener("mouseout", () =>{
+            
+            boards[1].removeAttribute("class", "board-hide");
+            boards[0].setAttribute("class","board-hide");
+            boards[3].setAttribute("class", "board-hide");
+            boards[2].removeAttribute("class","board-hide");
+
+            boards[1].setAttribute("class", "board");
+            boards[2].setAttribute("class", "board");
+
+
+        })
+
 
         //load screen animation
 
@@ -112,6 +141,10 @@ const landing = {
 
         self.goParty = () => {
             $location.path('party');
+        }
+
+        self.goBoard = () => {
+            $location.path('board');
         }
 
     }]

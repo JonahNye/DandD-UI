@@ -1,6 +1,6 @@
 <section class="fade-cont">
     <section class="funds">
-        <p>$ 10000000000000000</p>
+        <p>${{$ctrl.funds}}</p>
     </section>
 
     <section class="prices">
@@ -14,15 +14,26 @@
     <section class="transaction">
         <form ng-submit="$ctrl.buy($ctrl.newEntry);" class="buy-area">
             <button class="buy-btn">Buy</button>
-            <input ng-model="$ctrl.newEntry.item" class="buy-input" type="text" placeholder="Item">
-            <input ng-model="$ctrl.newEntry.quantity" class="buy-input" type="number" placeholder="quantity">
+            <select ng-model="$ctrl.newEntry.item" class="buy-input" type="text">
+                <option value="cloth">Cloth</option>
+                <option value="lumber">Lumber</option>
+                <option value="iron ore">Iron Ore</option>
+                <option value="spices">Spices</option>
+            </select>
+            <!--https://game-icons.net/1x1/delapouite/pay-money.html link to good img-->
             <input ng-model="$ctrl.newEntry.price" class="buy-input" type="number" placeholder="Price / Item">
+            <input ng-model="$ctrl.newEntry.quantity" class="buy-input" type="number" placeholder="Quantity">
         </form>
         <form ng-submit="$ctrl.sell($ctrl.newEntry);" class="sell-area">
             <button class="buy-btn">Sell</button class="buy-btn">
-            <input ng-model="$ctrl.newEntry.item" class="sell-input" type="text" placeholder="Item">
-            <input ng-model="$ctrl.newEntry.quantity" class="sell-input" type="number" placeholder="Quantity">
+                <select ng-model="$ctrl.newEntry.item" class="buy-input" type="text">
+                        <option value="cloth">Cloth</option>
+                        <option value="lumber">Lumber</option>
+                        <option value="iron ore">Iron Ore</option>
+                        <option value="spices">Spices</option>
+                </select>
             <input ng-model="$ctrl.newEntry.price" class="sell-input" type="number" placeholder="Price / Item">
+            <input ng-model="$ctrl.newEntry.quantity" class="sell-input" type="number" placeholder="Quantity">
         </form>
     </section>
 
