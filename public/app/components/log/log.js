@@ -82,14 +82,14 @@ const log = {
     }
 
     vm.buy = (newEntry)=> {
-console.log(newEntry, vm.newEntry);
+
         Service.getSupply().then((answer) => {
             vm.supplyObj = answer.data;
             // vm.upDateSupply(vm.supplyObj);
             // return vm.supplyObj;
         })
 
-        vm.newEntry["type"] = "bought";
+       vm.newEntry["type"] = "bought";
        Service.postLog(newEntry);
        
        if (newEntry.item === "cloth"){
@@ -107,14 +107,16 @@ console.log(newEntry, vm.newEntry);
         else if (newEntry.item === "spices"){
             vm.newEntry["id"] = 4;
         }
-        const { quantity } = [...vm.supplyObj][newEntry.id];
+        //const { quantity } = [...vm.supplyObj][newEntry.id];
 
         // console.log(vm.supplyObj);
         // console.log(vm.newEntry.quantity);
         // console.log(vm.supplyObj[vm.newEntry["id"]].quantity);
         //newEntry.quantity = vm.supplyObj[newEntry["id"]].quantity + vm.newEntry.quantity;
-        newEntry.quantity = quantity + vm.newEntry.quantity;
-       console.log(newEntry);
+
+        console.log(vm.supplyObj[newEntry.id].quantity); //why starting at zero?
+        newEntry.quantity += vm.supplyObj[newEntry.id].quantity;
+       console.log(newEntry.quantity);
 
         Service.putSupply(newEntry).then(res => console.log(res), err => console.log(err));
         

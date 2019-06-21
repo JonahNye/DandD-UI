@@ -173,25 +173,158 @@ landing h2 {
                 /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------- Board ---------------------------------------------------------------------------------------------------------------------------*/
 
+board h2, p {
+    font-family: 'MedievalSharp', cursive;
+}
+
 .game-board{
-    width: 40in;
-    height: 30in;
+    /* background-image: url('battle-maps/river-crossing.jpg'); */
+    background-size: cover;
+    width: 32in;
+    height: 18in;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.ocean-video {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+     /*show when selected */
 }
 
 .tile {
+    z-index: 2;
     width: 1in;
     height: 1in;
     box-sizing: border-box;
     border: 1px solid black;
     margin: 0;
+    background-color: transparent;
 }
 
-.tile:nth-child(even) {
-    background-color: gray;
+.board-settings {
+    width: 1.8in;
+    height: 1.8in;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 3;
+    opacity: .5;
 }
+
+.board-settings:hover {
+    border-radius: 100%;
+    box-shadow: inset 0 0 50px #ffebcd;
+    opacity: 1;
+    cursor: pointer; 
+}
+
+.settings-btn {
+    width: 100%;
+    height: 100%;
+}
+
+.settings-menu {
+    width: 30%;
+    height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    box-sizing: border-box;
+    border: 5px solid #122140;
+    border-radius: 20px;
+
+    display: none;
+    flex-direction: column;
+    align-items: center
+}
+
+.settings-header {
+    font-size: 45px;
+    color: red;
+}
+
+.settings-functionality {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 85%;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.map-btns {
+    width: 85%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-btns button {
+    height: 10%;
+    width: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #122140;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.map-btns button:hover {
+    background-color: white;
+    color: #122140;
+}
+
+.map-btns p {
+    font-size: 35px;
+}
+
+.grid-btns {
+    width: 85%;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.grid-btns button {
+    width: 28%;
+    height: 43%;
+    background-color: #122140;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.grid-btns button:hover {
+    background-color: white;
+    color: #122140;
+}
+
+.grid-btns p {
+    font-size: 25px;
+}
+
+
+
 
 
 
